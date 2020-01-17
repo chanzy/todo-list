@@ -1,0 +1,18 @@
+
+<div class="container">
+  <div class="row">
+    <div class="center">
+      <form [formGroup]="todoForm" #form>
+        <!--    <div fxLayout="row">-->
+        <mat-form-field id="todo-item-input">
+          <input matInput  placeholder="TODO" formControlName="todoItem">
+          <mat-error>
+            <span *ngIf="todoForm?.controls.todoItem?.errors?.required">Povinné pole</span>
+          </mat-error>
+        </mat-form-field>
+        <button [disabled]="todoForm?.controls.todoItem?.errors?.required || !todoForm?.value.todoItem" (click)="addTodo()" id="todo-submit" class="todo-margin" mat-raised-button color="primary">Přidat</button>
+      </form>
+    </div>
+  </div>
+</div>
+

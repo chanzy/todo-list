@@ -1,0 +1,26 @@
+<div class="center-p">
+  <p align="center" *ngIf="(doneList | async)?.length==0; else content">Žádné hotové úkoly</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <ng-template #content>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Název</th>
+          <th>Smazat</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of doneList | async; let i=index">
+          <td>{{item}}</td>
+          <td>
+            <i class="material-icons" (click)="delete(i)">delete</i>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </div>
+</div>
